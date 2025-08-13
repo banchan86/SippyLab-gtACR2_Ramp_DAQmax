@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<VisualizerLayout Version="2.9.0">
+  <WindowSettings Index="1">
+    <Location>
+      <X>887</X>
+      <Y>89</Y>
+    </Location>
+    <Size>
+      <Width>336</Width>
+      <Height>279</Height>
+    </Size>
+    <VisualizerTypeName>StateVisualizer</VisualizerTypeName>
+    <VisualizerSettings>
+      <StateVisualizer>
+        <Capacity>10</Capacity>
+      </StateVisualizer>
+    </VisualizerSettings>
+  </WindowSettings>
+  <WindowSettings Index="2">
+    <Location>
+      <X>1272</X>
+      <Y>87</Y>
+    </Location>
+    <Size>
+      <Width>336</Width>
+      <Height>279</Height>
+    </Size>
+    <VisualizerTypeName>ResponseVisualizer</VisualizerTypeName>
+    <VisualizerSettings>
+      <ResponseVisualizer />
+    </VisualizerSettings>
+  </WindowSettings>
+  <WindowSettings Index="4">
+    <Location>
+      <X>893</X>
+      <Y>398</Y>
+    </Location>
+    <Size>
+      <Width>416</Width>
+      <Height>279</Height>
+    </Size>
+    <VisualizerTypeName>Bonsai.Design.Visualizers.RollingGraphVisualizer</VisualizerTypeName>
+    <VisualizerSettings>
+      <RollingGraphVisualizer>
+        <Capacity>1000</Capacity>
+        <Min>-0.02</Min>
+        <Max>0.020000000000000004</Max>
+        <AutoScale>true</AutoScale>
+      </RollingGraphVisualizer>
+    </VisualizerSettings>
+  </WindowSettings>
+</VisualizerLayout>
