@@ -64,7 +64,7 @@
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="FloatProperty">
-                      <Value>0.05</Value>
+                      <Value>0.012</Value>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="rx:BehaviorSubject">
@@ -174,8 +174,8 @@
             <Expression xsi:type="ExternalizedMapping">
               <Property Name="RewardTone" />
               <Property Name="MissTone" />
-              <Property Name="Lower Bound ITI Duration " />
-              <Property Name="Upper Bound ITI Duration" />
+              <Property Name="DurationLower" />
+              <Property Name="DurationUpper" />
               <Property Name="Go Response Window (s)" />
               <Property Name="NoGo Response Window (s)" />
               <Property Name="NoGoSound" />
@@ -188,7 +188,7 @@
               <Property Name="QuietPeriodUpper" />
               <Property Name="ExtensionLower" />
               <Property Name="ExtensionUpper" />
-              <Property Name="TimeToS1Stim" />
+              <Property Name="TimeToS1Quiet" />
               <Property Name="SampleRate" />
               <Property Name="OnRampDuration" />
               <Property Name="OffRampDuration" />
@@ -265,7 +265,7 @@
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="rx:Delay">
-                      <rx:DueTime>PT20S</rx:DueTime>
+                      <rx:DueTime>PT5S</rx:DueTime>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="IncludeWorkflow" Path="Extensions\LogState.bonsai">
@@ -395,7 +395,7 @@
                         </Expression>
                         <Expression xsi:type="Combinator">
                           <Combinator xsi:type="rx:Timer">
-                            <rx:DueTime>PT0S</rx:DueTime>
+                            <rx:DueTime>PT2S</rx:DueTime>
                           </Combinator>
                         </Expression>
                         <Expression xsi:type="Combinator">
@@ -424,7 +424,7 @@
                         </Expression>
                         <Expression xsi:type="Combinator">
                           <Combinator xsi:type="rx:Timer">
-                            <rx:DueTime>PT0S</rx:DueTime>
+                            <rx:DueTime>PT2S</rx:DueTime>
                           </Combinator>
                         </Expression>
                         <Expression xsi:type="Combinator">
@@ -500,7 +500,7 @@
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="rx:DelaySubscription">
-                      <rx:DueTime>PT20S</rx:DueTime>
+                      <rx:DueTime>PT5S</rx:DueTime>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="Combinator">
@@ -687,8 +687,10 @@
                       <Mask>Digital0</Mask>
                     </Builder>
                   </Expression>
-                  <Expression xsi:type="ExternalizedMapping">
-                    <Property Name="TimeToS1Stim" />
+                  <Expression xsi:type="Disable">
+                    <Builder xsi:type="ExternalizedMapping">
+                      <Property Name="TimeToS1Stim" />
+                    </Builder>
                   </Expression>
                   <Expression xsi:type="Disable">
                     <Builder xsi:type="rx:SelectMany">
@@ -1038,7 +1040,7 @@
                     <Property Name="StimExtensionLower" Category="S1 Stim Properties" />
                     <Property Name="StimExtensionUpper" Category="S1 Stim Properties" />
                     <Property Name="TimeToS1Quiet" Category="S1 Stim Properties" />
-                    <Property Name="DueTime" DisplayName="TimeToS1Cutoff" Category="S1 Stim Properties" />
+                    <Property Name="TimeToS1Cutoff" Category="S1 Stim Properties" />
                   </Expression>
                   <Expression xsi:type="rx:SelectMany">
                     <Name>StimWithRamp</Name>
@@ -1052,12 +1054,22 @@
                           <Property Name="VoltageAmplitude" />
                           <Property Name="Channels" />
                         </Expression>
-                        <Expression xsi:type="IncludeWorkflow" Path="Extensions\VoltageRamp.bonsai">
-                          <SampleRate>20000</SampleRate>
-                          <OnRampDuration>0.3</OnRampDuration>
-                          <OffRampDuration>0.3</OffRampDuration>
-                          <PlateauDuration>10</PlateauDuration>
-                          <VoltageAmplitude>1.25</VoltageAmplitude>
+                        <Expression xsi:type="Disable">
+                          <Builder xsi:type="IncludeWorkflow" Path="Extensions\VoltageRamp.bonsai">
+                            <SampleRate>20000</SampleRate>
+                            <OnRampDuration>0.3</OnRampDuration>
+                            <OffRampDuration>0.3</OffRampDuration>
+                            <PlateauDuration>10</PlateauDuration>
+                            <VoltageAmplitude>1.25</VoltageAmplitude>
+                          </Builder>
+                        </Expression>
+                        <Expression xsi:type="Disable">
+                          <Builder xsi:type="WorkflowOutput" />
+                        </Expression>
+                        <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="rx:Timer">
+                            <rx:DueTime>PT10.6S</rx:DueTime>
+                          </Combinator>
                         </Expression>
                         <Expression xsi:type="WorkflowOutput" />
                         <Expression xsi:type="WorkflowInput">
@@ -1194,7 +1206,7 @@
                               </Expression>
                               <Expression xsi:type="Combinator">
                                 <Combinator xsi:type="rx:Timer">
-                                  <rx:DueTime>PT0S</rx:DueTime>
+                                  <rx:DueTime>PT1S</rx:DueTime>
                                 </Combinator>
                               </Expression>
                               <Expression xsi:type="Combinator">
@@ -1223,7 +1235,7 @@
                               </Expression>
                               <Expression xsi:type="Combinator">
                                 <Combinator xsi:type="rx:Timer">
-                                  <rx:DueTime>PT0S</rx:DueTime>
+                                  <rx:DueTime>PT2S</rx:DueTime>
                                 </Combinator>
                               </Expression>
                               <Expression xsi:type="Combinator">
@@ -1343,7 +1355,7 @@
                         </Expression>
                         <Expression xsi:type="p3:BehaviorCommand">
                           <p3:Type>SetOutput</p3:Type>
-                          <p3:Mask>Digital0</p3:Mask>
+                          <p3:Mask>Digital2</p3:Mask>
                         </Expression>
                         <Expression xsi:type="MulticastSubject">
                           <Name>Commands</Name>
@@ -1441,32 +1453,33 @@
                       <Edges>
                         <Edge From="0" To="1" Label="Source1" />
                         <Edge From="1" To="2" Label="Source1" />
-                        <Edge From="3" To="5" Label="Source1" />
-                        <Edge From="4" To="5" Label="Source2" />
-                        <Edge From="5" To="20" Label="Source1" />
-                        <Edge From="6" To="17" Label="Source1" />
-                        <Edge From="7" To="8" Label="Source1" />
-                        <Edge From="8" To="9" Label="Source1" />
+                        <Edge From="3" To="4" Label="Source1" />
+                        <Edge From="5" To="7" Label="Source1" />
+                        <Edge From="6" To="7" Label="Source2" />
+                        <Edge From="7" To="22" Label="Source1" />
+                        <Edge From="8" To="19" Label="Source1" />
                         <Edge From="9" To="10" Label="Source1" />
                         <Edge From="10" To="11" Label="Source1" />
-                        <Edge From="11" To="17" Label="Source2" />
+                        <Edge From="11" To="12" Label="Source1" />
                         <Edge From="12" To="13" Label="Source1" />
-                        <Edge From="13" To="14" Label="Source1" />
+                        <Edge From="13" To="19" Label="Source2" />
                         <Edge From="14" To="15" Label="Source1" />
                         <Edge From="15" To="16" Label="Source1" />
-                        <Edge From="16" To="17" Label="Source3" />
-                        <Edge From="17" To="19" Label="Source1" />
-                        <Edge From="18" To="19" Label="Source2" />
-                        <Edge From="19" To="20" Label="Source2" />
-                        <Edge From="20" To="23" Label="Source1" />
-                        <Edge From="21" To="22" Label="Source1" />
-                        <Edge From="22" To="23" Label="Source2" />
+                        <Edge From="16" To="17" Label="Source1" />
+                        <Edge From="17" To="18" Label="Source1" />
+                        <Edge From="18" To="19" Label="Source3" />
+                        <Edge From="19" To="21" Label="Source1" />
+                        <Edge From="20" To="21" Label="Source2" />
+                        <Edge From="21" To="22" Label="Source2" />
+                        <Edge From="22" To="25" Label="Source1" />
                         <Edge From="23" To="24" Label="Source1" />
-                        <Edge From="24" To="25" Label="Source1" />
-                        <Edge From="25" To="27" Label="Source1" />
-                        <Edge From="26" To="27" Label="Source2" />
-                        <Edge From="27" To="28" Label="Source1" />
-                        <Edge From="28" To="29" Label="Source1" />
+                        <Edge From="24" To="25" Label="Source2" />
+                        <Edge From="25" To="26" Label="Source1" />
+                        <Edge From="26" To="27" Label="Source1" />
+                        <Edge From="27" To="29" Label="Source1" />
+                        <Edge From="28" To="29" Label="Source2" />
+                        <Edge From="29" To="30" Label="Source1" />
+                        <Edge From="30" To="31" Label="Source1" />
                       </Edges>
                     </Workflow>
                   </Expression>
@@ -1836,7 +1849,7 @@
                   </Expression>
                   <Expression xsi:type="GreaterThan">
                     <Operand xsi:type="DoubleProperty">
-                      <Value>0.05</Value>
+                      <Value>0.012</Value>
                     </Operand>
                   </Expression>
                   <Expression xsi:type="rx:Condition">
@@ -2005,7 +2018,7 @@
               </PropertyMappings>
             </Expression>
             <Expression xsi:type="io:CsvWriter">
-              <io:FileName>C:\Users\Sippylab\Desktop\Behavior Data/Celeste/ToDelete/Baseline_ToDelete_2025-08-11T16-09-06/ResponseStat.csv</io:FileName>
+              <io:FileName>C:\Users\Sippylab\Desktop\Behavior Data/Celeste/ToDelete/TestRamp_ToDelete_2025-08-13T15-19-28/ResponseStat.csv</io:FileName>
               <io:Append>false</io:Append>
               <io:Overwrite>false</io:Overwrite>
               <io:Suffix>None</io:Suffix>
@@ -2046,9 +2059,9 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="p1:StateTransition">
-                <p1:Trial>0</p1:Trial>
-                <p1:Id>ITI</p1:Id>
-                <p1:ElapsedTime>5984707.215488</p1:ElapsedTime>
+                <p1:Trial>5</p1:Trial>
+                <p1:Id>Joystick</p1:Id>
+                <p1:ElapsedTime>6160721.682016</p1:ElapsedTime>
               </Combinator>
             </Expression>
             <Expression xsi:type="Combinator">
@@ -2086,7 +2099,7 @@
               </PropertyMappings>
             </Expression>
             <Expression xsi:type="io:CsvWriter">
-              <io:FileName>C:\Users\Sippylab\Desktop\Behavior Data/Celeste/ToDelete/Baseline_ToDelete_2025-08-11T16-09-06/GoTone_StateTransitions.csv</io:FileName>
+              <io:FileName>C:\Users\Sippylab\Desktop\Behavior Data/Celeste/ToDelete/TestRamp_ToDelete_2025-08-13T15-19-28/GoTone_StateTransitions.csv</io:FileName>
               <io:Append>false</io:Append>
               <io:Overwrite>false</io:Overwrite>
               <io:Suffix>None</io:Suffix>
@@ -2208,7 +2221,7 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="FloatProperty">
-                <Value>0.05</Value>
+                <Value>0.012</Value>
               </Combinator>
             </Expression>
             <Expression xsi:type="rx:BehaviorSubject">
@@ -2382,7 +2395,7 @@
                       <harp:VisualIndicators>On</harp:VisualIndicators>
                       <harp:Heartbeat>Disabled</harp:Heartbeat>
                       <harp:IgnoreErrors>false</harp:IgnoreErrors>
-                      <harp:PortName>COM5</harp:PortName>
+                      <harp:PortName>COM3</harp:PortName>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="harp:Parse">
@@ -2440,7 +2453,7 @@
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="dsp:MatrixWriter">
-                      <dsp:Path>C:\Users\Sippylab\Desktop\Behavior Data/Celeste/ToDelete/Baseline_ToDelete_2025-08-11T16-09-06/Joystick.bin</dsp:Path>
+                      <dsp:Path>C:\Users\Sippylab\Desktop\Behavior Data/Celeste/ToDelete/TestRamp_ToDelete_2025-08-13T15-19-28/Joystick.bin</dsp:Path>
                       <dsp:Suffix>None</dsp:Suffix>
                       <dsp:Overwrite>false</dsp:Overwrite>
                       <dsp:Layout>ColumnMajor</dsp:Layout>
@@ -3060,7 +3073,7 @@
                               </Expression>
                               <Expression xsi:type="Combinator">
                                 <Combinator xsi:type="DoubleProperty">
-                                  <Value>0.05000000074505806</Value>
+                                  <Value>0.012000000104308128</Value>
                                 </Combinator>
                               </Expression>
                               <Expression xsi:type="Combinator">
@@ -3230,119 +3243,147 @@ Item5 as NoGoToneTick)</scr:Expression>
         </PropertyMappings>
       </Expression>
       <Expression xsi:type="io:CsvWriter">
-        <io:FileName>C:\Users\Sippylab\Desktop\Behavior Data/Celeste/ToDelete/Baseline_ToDelete_2025-08-11T16-09-06/JoystickTrace.csv</io:FileName>
+        <io:FileName>C:\Users\Sippylab\Desktop\Behavior Data/Celeste/ToDelete/TestRamp_ToDelete_2025-08-13T15-19-28/JoystickTrace.csv</io:FileName>
         <io:Append>false</io:Append>
         <io:Overwrite>false</io:Overwrite>
         <io:Suffix>None</io:Suffix>
         <io:IncludeHeader>false</io:IncludeHeader>
       </Expression>
-      <Expression xsi:type="Combinator">
-        <Combinator xsi:type="p4:FP3002">
-          <p4:AcquisitionMode>StartPhotometry</p4:AcquisitionMode>
-          <p4:PortName>COMx</p4:PortName>
-          <p4:Regions>
-            <p4:PhotometryRegion>
-              <p4:Index>0</p4:Index>
-              <p4:Channel>Red</p4:Channel>
-              <p4:Rectangle>
-                <p4:Location>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="Combinator">
+          <Combinator xsi:type="p4:FP3002">
+            <p4:AcquisitionMode>StartPhotometry</p4:AcquisitionMode>
+            <p4:PortName>COMx</p4:PortName>
+            <p4:Regions>
+              <p4:PhotometryRegion>
+                <p4:Index>0</p4:Index>
+                <p4:Channel>Red</p4:Channel>
+                <p4:Rectangle>
+                  <p4:Location>
+                    <p4:X>248</p4:X>
+                    <p4:Y>461</p4:Y>
+                  </p4:Location>
+                  <p4:Size>
+                    <p4:Width>72</p4:Width>
+                    <p4:Height>74</p4:Height>
+                  </p4:Size>
                   <p4:X>248</p4:X>
                   <p4:Y>461</p4:Y>
-                </p4:Location>
-                <p4:Size>
                   <p4:Width>72</p4:Width>
                   <p4:Height>74</p4:Height>
-                </p4:Size>
-                <p4:X>248</p4:X>
-                <p4:Y>461</p4:Y>
-                <p4:Width>72</p4:Width>
-                <p4:Height>74</p4:Height>
-              </p4:Rectangle>
-              <p4:Name>R0</p4:Name>
-            </p4:PhotometryRegion>
-            <p4:PhotometryRegion>
-              <p4:Index>1</p4:Index>
-              <p4:Channel>Red</p4:Channel>
-              <p4:Rectangle>
-                <p4:Location>
+                </p4:Rectangle>
+                <p4:Name>R0</p4:Name>
+              </p4:PhotometryRegion>
+              <p4:PhotometryRegion>
+                <p4:Index>1</p4:Index>
+                <p4:Channel>Red</p4:Channel>
+                <p4:Rectangle>
+                  <p4:Location>
+                    <p4:X>305</p4:X>
+                    <p4:Y>534</p4:Y>
+                  </p4:Location>
+                  <p4:Size>
+                    <p4:Width>70</p4:Width>
+                    <p4:Height>70</p4:Height>
+                  </p4:Size>
                   <p4:X>305</p4:X>
                   <p4:Y>534</p4:Y>
-                </p4:Location>
-                <p4:Size>
                   <p4:Width>70</p4:Width>
                   <p4:Height>70</p4:Height>
-                </p4:Size>
-                <p4:X>305</p4:X>
-                <p4:Y>534</p4:Y>
-                <p4:Width>70</p4:Width>
-                <p4:Height>70</p4:Height>
-              </p4:Rectangle>
-              <p4:Name>R1</p4:Name>
-            </p4:PhotometryRegion>
-          </p4:Regions>
-        </Combinator>
+                </p4:Rectangle>
+                <p4:Name>R1</p4:Name>
+              </p4:PhotometryRegion>
+            </p4:Regions>
+          </Combinator>
+        </Builder>
       </Expression>
-      <Expression xsi:type="Combinator">
-        <Combinator xsi:type="p4:PhotometryData">
-          <p4:VisualizerSettings>
-            <p4:PlotSettings />
-            <p4:Capacity>1000</p4:Capacity>
-          </p4:VisualizerSettings>
-        </Combinator>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="Combinator">
+          <Combinator xsi:type="p4:PhotometryData">
+            <p4:VisualizerSettings>
+              <p4:PlotSettings />
+              <p4:Capacity>1000</p4:Capacity>
+            </p4:VisualizerSettings>
+          </Combinator>
+        </Builder>
       </Expression>
-      <Expression xsi:type="Combinator">
-        <Combinator xsi:type="rx:Timestamp" />
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="Combinator">
+          <Combinator xsi:type="rx:Timestamp" />
+        </Builder>
       </Expression>
-      <Expression xsi:type="MemberSelector">
-        <Selector>Value.FrameCounter</Selector>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="MemberSelector">
+          <Selector>Value.FrameCounter</Selector>
+        </Builder>
       </Expression>
-      <Expression xsi:type="MemberSelector">
-        <Selector>Timestamp.TimeOfDay.TotalMilliseconds</Selector>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="MemberSelector">
+          <Selector>Timestamp.TimeOfDay.TotalMilliseconds</Selector>
+        </Builder>
       </Expression>
-      <Expression xsi:type="Combinator">
-        <Combinator xsi:type="rx:Zip" />
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="Combinator">
+          <Combinator xsi:type="rx:Zip" />
+        </Builder>
       </Expression>
-      <Expression xsi:type="SubscribeSubject">
-        <Name>Path</Name>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="SubscribeSubject">
+          <Name>Path</Name>
+        </Builder>
       </Expression>
-      <Expression xsi:type="Add">
-        <Operand xsi:type="StringProperty">
-          <Value>/Frames.csv</Value>
-        </Operand>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="Add">
+          <Operand xsi:type="StringProperty">
+            <Value>/Frames.csv</Value>
+          </Operand>
+        </Builder>
       </Expression>
-      <Expression xsi:type="PropertyMapping">
-        <PropertyMappings>
-          <Property Name="FileName" />
-        </PropertyMappings>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="PropertyMapping">
+          <PropertyMappings>
+            <Property Name="FileName" />
+          </PropertyMappings>
+        </Builder>
       </Expression>
-      <Expression xsi:type="io:CsvWriter">
-        <io:FileName>C:\Users\Sippylab\Desktop\Behavior Data/Celeste/ToDelete/Baseline_ToDelete_2025-08-11T16-08-27/Frames.csv</io:FileName>
-        <io:Append>false</io:Append>
-        <io:Overwrite>false</io:Overwrite>
-        <io:Suffix>Timestamp</io:Suffix>
-        <io:IncludeHeader>true</io:IncludeHeader>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="io:CsvWriter">
+          <io:FileName>C:\Users\Sippylab\Desktop\Behavior Data/Celeste/ToDelete/TestRamp_ToDelete_2025-08-13T15-11-10/Frames.csv</io:FileName>
+          <io:Append>false</io:Append>
+          <io:Overwrite>false</io:Overwrite>
+          <io:Suffix>Timestamp</io:Suffix>
+          <io:IncludeHeader>true</io:IncludeHeader>
+        </Builder>
       </Expression>
-      <Expression xsi:type="SubscribeSubject">
-        <Name>Path</Name>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="SubscribeSubject">
+          <Name>Path</Name>
+        </Builder>
       </Expression>
-      <Expression xsi:type="Add">
-        <Operand xsi:type="StringProperty">
-          <Value>/Photometry_.csv</Value>
-        </Operand>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="Add">
+          <Operand xsi:type="StringProperty">
+            <Value>/Photometry_.csv</Value>
+          </Operand>
+        </Builder>
       </Expression>
-      <Expression xsi:type="PropertyMapping">
-        <PropertyMappings>
-          <Property Name="FileName" />
-        </PropertyMappings>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="PropertyMapping">
+          <PropertyMappings>
+            <Property Name="FileName" />
+          </PropertyMappings>
+        </Builder>
       </Expression>
-      <Expression xsi:type="Combinator">
-        <Combinator xsi:type="p4:PhotometryWriter">
-          <p4:IncludeRegions>false</p4:IncludeRegions>
-          <p4:IncludePlots>false</p4:IncludePlots>
-          <p4:IncludeVideo>false</p4:IncludeVideo>
-          <p4:FileName>C:\Users\Sippylab\Desktop\Behavior Data/Celeste/ToDelete/Baseline_ToDelete_2025-08-11T16-08-27/Photometry_.csv</p4:FileName>
-          <p4:Suffix>None</p4:Suffix>
-        </Combinator>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="Combinator">
+          <Combinator xsi:type="p4:PhotometryWriter">
+            <p4:IncludeRegions>false</p4:IncludeRegions>
+            <p4:IncludePlots>false</p4:IncludePlots>
+            <p4:IncludeVideo>false</p4:IncludeVideo>
+            <p4:FileName>C:\Users\Sippylab\Desktop\Behavior Data/Celeste/ToDelete/TestRamp_ToDelete_2025-08-13T15-11-10/Photometry_.csv</p4:FileName>
+            <p4:Suffix>None</p4:Suffix>
+          </Combinator>
+        </Builder>
       </Expression>
       <Expression xsi:type="ExternalizedMapping">
         <Property Name="Value" DisplayName="DataPath" Category="Experiment Control" />
@@ -3364,7 +3405,7 @@ Item5 as NoGoToneTick)</scr:Expression>
       </Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="StringProperty">
-          <Value>Baseline</Value>
+          <Value>TestRamp</Value>
         </Combinator>
       </Expression>
       <Expression xsi:type="ExternalizedMapping">
@@ -3466,7 +3507,7 @@ Item2 as Metadata)</scr:Expression>
         </PropertyMappings>
       </Expression>
       <Expression xsi:type="io:CsvWriter">
-        <io:FileName>C:\Users\Sippylab\Desktop\Behavior Data/Celeste/ToDelete/Baseline_ToDelete_2025-08-11T16-09-06/LickTrace.csv</io:FileName>
+        <io:FileName>C:\Users\Sippylab\Desktop\Behavior Data/Celeste/ToDelete/TestRamp_ToDelete_2025-08-13T15-19-28/LickTrace.csv</io:FileName>
         <io:Append>false</io:Append>
         <io:Overwrite>false</io:Overwrite>
         <io:Suffix>None</io:Suffix>
@@ -3528,15 +3569,19 @@ Item2 as Metadata)</scr:Expression>
       <Expression xsi:type="IncludeWorkflow" Path="Extensions\LogState.bonsai">
         <Id>Blink</Id>
       </Expression>
-      <Expression xsi:type="Combinator">
-        <Combinator xsi:type="spk:SpinnakerCapture">
-          <spk:Index xsi:nil="true" />
-          <spk:SerialNumber>20087890</spk:SerialNumber>
-          <spk:ColorProcessing>Default</spk:ColorProcessing>
-        </Combinator>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="Combinator">
+          <Combinator xsi:type="spk:SpinnakerCapture">
+            <spk:Index xsi:nil="true" />
+            <spk:SerialNumber>20087890</spk:SerialNumber>
+            <spk:ColorProcessing>Default</spk:ColorProcessing>
+          </Combinator>
+        </Builder>
       </Expression>
-      <Expression xsi:type="MemberSelector">
-        <Selector>Image</Selector>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="MemberSelector">
+          <Selector>Image</Selector>
+        </Builder>
       </Expression>
       <Expression xsi:type="Disable">
         <Builder xsi:type="Combinator">
@@ -3566,61 +3611,83 @@ Item2 as Metadata)</scr:Expression>
           </Combinator>
         </Builder>
       </Expression>
-      <Expression xsi:type="Combinator">
-        <Combinator xsi:type="rx:Timestamp" />
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="Combinator">
+          <Combinator xsi:type="rx:Timestamp" />
+        </Builder>
       </Expression>
-      <Expression xsi:type="MemberSelector">
-        <Selector>Timestamp.TimeOfDay.TotalMilliseconds</Selector>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="MemberSelector">
+          <Selector>Timestamp.TimeOfDay.TotalMilliseconds</Selector>
+        </Builder>
       </Expression>
-      <Expression xsi:type="Combinator">
-        <Combinator xsi:type="rx:Zip" />
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="Combinator">
+          <Combinator xsi:type="rx:Zip" />
+        </Builder>
       </Expression>
-      <Expression xsi:type="SubscribeSubject">
-        <Name>Path</Name>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="SubscribeSubject">
+          <Name>Path</Name>
+        </Builder>
       </Expression>
-      <Expression xsi:type="Add">
-        <Operand xsi:type="StringProperty">
-          <Value>/VideoTimestamps.csv</Value>
-        </Operand>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="Add">
+          <Operand xsi:type="StringProperty">
+            <Value>/VideoTimestamps.csv</Value>
+          </Operand>
+        </Builder>
       </Expression>
-      <Expression xsi:type="PropertyMapping">
-        <PropertyMappings>
-          <Property Name="FileName" />
-        </PropertyMappings>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="PropertyMapping">
+          <PropertyMappings>
+            <Property Name="FileName" />
+          </PropertyMappings>
+        </Builder>
       </Expression>
-      <Expression xsi:type="io:CsvWriter">
-        <io:FileName>C:\Users\Sippylab\Desktop\Behavior Data/Celeste/ToDelete/Baseline_ToDelete_2025-08-11T16-09-06/VideoTimestamps.csv</io:FileName>
-        <io:Append>false</io:Append>
-        <io:Overwrite>false</io:Overwrite>
-        <io:Suffix>None</io:Suffix>
-        <io:IncludeHeader>false</io:IncludeHeader>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="io:CsvWriter">
+          <io:FileName>C:\Users\Sippylab\Desktop\Behavior Data/Celeste/ToDelete/TestRamp_ToDelete_2025-08-13T15-11-18/VideoTimestamps.csv</io:FileName>
+          <io:Append>false</io:Append>
+          <io:Overwrite>false</io:Overwrite>
+          <io:Suffix>None</io:Suffix>
+          <io:IncludeHeader>false</io:IncludeHeader>
+        </Builder>
       </Expression>
-      <Expression xsi:type="SubscribeSubject">
-        <Name>SessionMetadata</Name>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="SubscribeSubject">
+          <Name>SessionMetadata</Name>
+        </Builder>
       </Expression>
-      <Expression xsi:type="Format">
-        <Format>{0}\{1}_{2}_{3:yyyy-MM-ddTHH-mm-ss}.avi</Format>
-        <Selector>Path,Metadata.Value.SubjectId,Metadata.Value.ExperimentName,Metadata.Timestamp</Selector>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="Format">
+          <Format>{0}\{1}_{2}_{3:yyyy-MM-ddTHH-mm-ss}.avi</Format>
+          <Selector>Path,Metadata.Value.SubjectId,Metadata.Value.ExperimentName,Metadata.Timestamp</Selector>
+        </Builder>
       </Expression>
-      <Expression xsi:type="PropertyMapping">
-        <PropertyMappings>
-          <Property Name="FileName" />
-        </PropertyMappings>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="PropertyMapping">
+          <PropertyMappings>
+            <Property Name="FileName" />
+          </PropertyMappings>
+        </Builder>
       </Expression>
-      <Expression xsi:type="Combinator">
-        <Combinator xsi:type="cv:VideoWriter">
-          <cv:FileName>C:\Users\Sippylab\Desktop\Behavior Data/Celeste/ToDelete/Baseline_ToDelete_2025-08-11T16-09-06\Baseline_ToDelete_2025-08-11T16-09-06.avi</cv:FileName>
-          <cv:Suffix>None</cv:Suffix>
-          <cv:Buffered>true</cv:Buffered>
-          <cv:Overwrite>false</cv:Overwrite>
-          <cv:FourCC>FMP4</cv:FourCC>
-          <cv:FrameRate>60</cv:FrameRate>
-          <cv:FrameSize>
-            <cv:Width>0</cv:Width>
-            <cv:Height>0</cv:Height>
-          </cv:FrameSize>
-          <cv:ResizeInterpolation>NearestNeighbor</cv:ResizeInterpolation>
-        </Combinator>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="Combinator">
+          <Combinator xsi:type="cv:VideoWriter">
+            <cv:FileName>C:\Users\Sippylab\Desktop\Behavior Data/Celeste/ToDelete/TestRamp_ToDelete_2025-08-13T15-11-18\TestRamp_ToDelete_2025-08-13T15-11-18.avi</cv:FileName>
+            <cv:Suffix>None</cv:Suffix>
+            <cv:Buffered>true</cv:Buffered>
+            <cv:Overwrite>false</cv:Overwrite>
+            <cv:FourCC>FMP4</cv:FourCC>
+            <cv:FrameRate>60</cv:FrameRate>
+            <cv:FrameSize>
+              <cv:Width>0</cv:Width>
+              <cv:Height>0</cv:Height>
+            </cv:FrameSize>
+            <cv:ResizeInterpolation>NearestNeighbor</cv:ResizeInterpolation>
+          </Combinator>
+        </Builder>
       </Expression>
       <Expression xsi:type="Disable">
         <Builder xsi:type="p3:BehaviorCommand">
