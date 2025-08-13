@@ -32,8 +32,8 @@
   </WindowSettings>
   <WindowSettings Index="4">
     <Location>
-      <X>1010</X>
-      <Y>475</Y>
+      <X>558</X>
+      <Y>472</Y>
     </Location>
     <Size>
       <Width>416</Width>
@@ -44,15 +44,15 @@
       <RollingGraphVisualizer>
         <Capacity>1000</Capacity>
         <Min>-0.02</Min>
-        <Max>0.015000000000000001</Max>
+        <Max>0.02</Max>
         <AutoScale>true</AutoScale>
       </RollingGraphVisualizer>
     </VisualizerSettings>
   </WindowSettings>
   <WindowSettings Index="10">
     <Location>
-      <X>1006</X>
-      <Y>192</Y>
+      <X>555</X>
+      <Y>179</Y>
     </Location>
     <Size>
       <Width>416</Width>
@@ -63,7 +63,7 @@
       <TimeSeriesVisualizer>
         <Capacity>640</Capacity>
         <Min>0</Min>
-        <Max>0.020000000000000004</Max>
+        <Max>0.008</Max>
         <AutoScale>true</AutoScale>
       </TimeSeriesVisualizer>
     </VisualizerSettings>
