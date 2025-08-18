@@ -14,11 +14,67 @@
     <VisualizerSettings>
       <ObjectTextVisualizer />
     </VisualizerSettings>
+    <NestedLayout>
+      <WindowSettings Index="22">
+        <NestedLayout>
+          <WindowSettings Index="28">
+            <Visible>false</Visible>
+            <Location>
+              <X>98</X>
+              <Y>102</Y>
+            </Location>
+            <Size>
+              <Width>333</Width>
+              <Height>63</Height>
+            </Size>
+            <VisualizerTypeName>Bonsai.Design.ObjectTextVisualizer</VisualizerTypeName>
+            <VisualizerSettings>
+              <ObjectTextVisualizer />
+            </VisualizerSettings>
+          </WindowSettings>
+          <WindowSettings Index="58">
+            <NestedLayout>
+              <WindowSettings Index="23">
+                <Location>
+                  <X>220</X>
+                  <Y>229</Y>
+                </Location>
+                <Size>
+                  <Width>333</Width>
+                  <Height>63</Height>
+                </Size>
+                <VisualizerTypeName>Bonsai.Design.ObjectTextVisualizer</VisualizerTypeName>
+                <VisualizerSettings>
+                  <ObjectTextVisualizer />
+                </VisualizerSettings>
+              </WindowSettings>
+            </NestedLayout>
+          </WindowSettings>
+        </NestedLayout>
+      </WindowSettings>
+      <WindowSettings Index="89">
+        <Visible>false</Visible>
+        <Location>
+          <X>122</X>
+          <Y>127</Y>
+        </Location>
+        <Size>
+          <Width>413</Width>
+          <Height>277</Height>
+        </Size>
+        <VisualizerTypeName>Bonsai.Design.Visualizers.BooleanTimeSeriesVisualizer</VisualizerTypeName>
+        <VisualizerSettings>
+          <BooleanTimeSeriesVisualizer>
+            <Capacity>640</Capacity>
+          </BooleanTimeSeriesVisualizer>
+        </VisualizerSettings>
+      </WindowSettings>
+    </NestedLayout>
   </WindowSettings>
   <WindowSettings Index="1">
     <Location>
-      <X>94</X>
-      <Y>66</Y>
+      <X>88</X>
+      <Y>646</Y>
     </Location>
     <Size>
       <Width>334</Width>
@@ -58,8 +114,8 @@
     <VisualizerSettings>
       <RollingGraphVisualizer>
         <Capacity>1000</Capacity>
-        <Min>-10</Min>
-        <Max>40</Max>
+        <Min>0</Min>
+        <Max>60</Max>
         <AutoScale>true</AutoScale>
       </RollingGraphVisualizer>
     </VisualizerSettings>

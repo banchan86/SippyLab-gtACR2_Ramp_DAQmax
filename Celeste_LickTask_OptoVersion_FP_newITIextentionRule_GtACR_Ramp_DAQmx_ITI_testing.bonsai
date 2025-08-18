@@ -280,8 +280,8 @@
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p2:CreateContinuousUniform">
-                      <p2:Lower>2</p2:Lower>
-                      <p2:Upper>2</p2:Upper>
+                      <p2:Lower>0</p2:Lower>
+                      <p2:Upper>0</p2:Upper>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="Combinator">
@@ -301,8 +301,8 @@
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p2:CreateContinuousUniform">
-                      <p2:Lower>2</p2:Lower>
-                      <p2:Upper>2</p2:Upper>
+                      <p2:Lower>0</p2:Lower>
+                      <p2:Upper>0</p2:Upper>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="Combinator">
@@ -395,7 +395,7 @@
                         </Expression>
                         <Expression xsi:type="Combinator">
                           <Combinator xsi:type="rx:Timer">
-                            <rx:DueTime>PT2S</rx:DueTime>
+                            <rx:DueTime>PT0S</rx:DueTime>
                           </Combinator>
                         </Expression>
                         <Expression xsi:type="Combinator">
@@ -424,7 +424,7 @@
                         </Expression>
                         <Expression xsi:type="Combinator">
                           <Combinator xsi:type="rx:Timer">
-                            <rx:DueTime>PT2S</rx:DueTime>
+                            <rx:DueTime>PT0S</rx:DueTime>
                           </Combinator>
                         </Expression>
                         <Expression xsi:type="Combinator">
@@ -2247,7 +2247,7 @@
               </PropertyMappings>
             </Expression>
             <Expression xsi:type="io:CsvWriter">
-              <io:FileName>Data/Shawn/Visualizer_test/gtACR2_visualizer_Visualizer_test_2025-08-17T16-48-18/ResponseStat.csv</io:FileName>
+              <io:FileName>Data/Shawn/Visualizer_test/gtACR2_visualizer_Visualizer_test_2025-08-18T07-26-18/ResponseStat.csv</io:FileName>
               <io:Append>false</io:Append>
               <io:Overwrite>false</io:Overwrite>
               <io:Suffix>None</io:Suffix>
@@ -2288,9 +2288,9 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="p1:StateTransition">
-                <p1:Trial>0</p1:Trial>
-                <p1:Id>Joystick</p1:Id>
-                <p1:ElapsedTime>60591.742886399996</p1:ElapsedTime>
+                <p1:Trial>5</p1:Trial>
+                <p1:Id>ITI2</p1:Id>
+                <p1:ElapsedTime>26863.3142528</p1:ElapsedTime>
               </Combinator>
             </Expression>
             <Expression xsi:type="Combinator">
@@ -2328,7 +2328,7 @@
               </PropertyMappings>
             </Expression>
             <Expression xsi:type="io:CsvWriter">
-              <io:FileName>Data/Shawn/Visualizer_test/gtACR2_visualizer_Visualizer_test_2025-08-17T16-48-18/GoTone_StateTransitions.csv</io:FileName>
+              <io:FileName>Data/Shawn/Visualizer_test/gtACR2_visualizer_Visualizer_test_2025-08-18T07-26-18/GoTone_StateTransitions.csv</io:FileName>
               <io:Append>false</io:Append>
               <io:Overwrite>false</io:Overwrite>
               <io:Suffix>None</io:Suffix>
@@ -2435,7 +2435,7 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="FloatProperty">
-                <Value>-0.02</Value>
+                <Value>30</Value>
               </Combinator>
             </Expression>
             <Expression xsi:type="rx:BehaviorSubject">
@@ -2450,7 +2450,7 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="FloatProperty">
-                <Value>0.012</Value>
+                <Value>50</Value>
               </Combinator>
             </Expression>
             <Expression xsi:type="rx:BehaviorSubject">
@@ -3472,7 +3472,7 @@ Item5 as NoGoToneTick)</scr:Expression>
         </PropertyMappings>
       </Expression>
       <Expression xsi:type="io:CsvWriter">
-        <io:FileName>Data/Shawn/Visualizer_test/gtACR2_visualizer_Visualizer_test_2025-08-17T16-48-18/JoystickTrace.csv</io:FileName>
+        <io:FileName>Data/Shawn/Visualizer_test/gtACR2_visualizer_Visualizer_test_2025-08-18T07-26-18/JoystickTrace.csv</io:FileName>
         <io:Append>false</io:Append>
         <io:Overwrite>false</io:Overwrite>
         <io:Suffix>None</io:Suffix>
