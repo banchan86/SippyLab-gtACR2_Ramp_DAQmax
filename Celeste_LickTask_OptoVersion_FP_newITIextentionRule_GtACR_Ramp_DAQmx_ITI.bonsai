@@ -822,8 +822,10 @@
                       </Workflow>
                     </Builder>
                   </Expression>
-                  <Expression xsi:type="IncludeWorkflow" Path="Extensions\LogState.bonsai">
-                    <Id>Go</Id>
+                  <Expression xsi:type="Disable">
+                    <Builder xsi:type="IncludeWorkflow" Path="Extensions\LogState.bonsai">
+                      <Id>Go</Id>
+                    </Builder>
                   </Expression>
                   <Expression xsi:type="Disable">
                     <Builder xsi:type="IncludeWorkflow" Path="Extensions\ClearOutput.bonsai">
@@ -884,7 +886,7 @@
                           <Name>Source1</Name>
                         </Expression>
                         <Expression xsi:type="Annotation">
-                          <Name>LogState Blink for Ramp</Name>
+                          <Name>LogState Response is for Ramp (blue)</Name>
                           <Text><![CDATA[]]></Text>
                         </Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="Extensions\LogState.bonsai">
@@ -920,8 +922,8 @@
                         </Expression>
                         <Expression xsi:type="Combinator">
                           <Combinator xsi:type="p2:CreateContinuousUniform">
-                            <p2:Lower>2</p2:Lower>
-                            <p2:Upper>2</p2:Upper>
+                            <p2:Lower>1</p2:Lower>
+                            <p2:Upper>1</p2:Upper>
                           </Combinator>
                         </Expression>
                         <Expression xsi:type="Combinator">
@@ -1043,7 +1045,7 @@
                               </Expression>
                               <Expression xsi:type="Combinator">
                                 <Combinator xsi:type="rx:Timer">
-                                  <rx:DueTime>PT2S</rx:DueTime>
+                                  <rx:DueTime>PT1S</rx:DueTime>
                                 </Combinator>
                               </Expression>
                               <Expression xsi:type="Combinator">
@@ -1155,7 +1157,7 @@
                           </Combinator>
                         </Expression>
                         <Expression xsi:type="Annotation">
-                          <Name>LogState Reponse is for S1</Name>
+                          <Name>LogState Blink is for S1 (pink dot)</Name>
                           <Text><![CDATA[]]></Text>
                         </Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="Extensions\LogState.bonsai">
@@ -2004,7 +2006,7 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="rx:Take">
-                <rx:Count>6</rx:Count>
+                <rx:Count>15</rx:Count>
               </Combinator>
             </Expression>
             <Expression xsi:type="Combinator">
@@ -2030,7 +2032,7 @@
               </PropertyMappings>
             </Expression>
             <Expression xsi:type="io:CsvWriter">
-              <io:FileName>C:\Users\Sippylab\Desktop\Behavior Data/Celeste/For_Shawn/gtACR2_Ramp_Data_For_Shawn_2025-08-18T12-14-49/ResponseStat.csv</io:FileName>
+              <io:FileName>C:\Users\Sippylab\Desktop\Behavior Data/Celeste/ToDelete/TestRamp_ToDelete_2025-08-18T12-28-52/ResponseStat.csv</io:FileName>
               <io:Append>false</io:Append>
               <io:Overwrite>false</io:Overwrite>
               <io:Suffix>None</io:Suffix>
@@ -2071,9 +2073,9 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="p1:StateTransition">
-                <p1:Trial>2</p1:Trial>
-                <p1:Id>Miss</p1:Id>
-                <p1:ElapsedTime>6581553.201024</p1:ElapsedTime>
+                <p1:Trial>3</p1:Trial>
+                <p1:Id>Response</p1:Id>
+                <p1:ElapsedTime>6582405.659008</p1:ElapsedTime>
               </Combinator>
             </Expression>
             <Expression xsi:type="Combinator">
@@ -2111,7 +2113,7 @@
               </PropertyMappings>
             </Expression>
             <Expression xsi:type="io:CsvWriter">
-              <io:FileName>C:\Users\Sippylab\Desktop\Behavior Data/Celeste/For_Shawn/gtACR2_Ramp_Data_For_Shawn_2025-08-18T12-14-49/GoTone_StateTransitions.csv</io:FileName>
+              <io:FileName>C:\Users\Sippylab\Desktop\Behavior Data/Celeste/ToDelete/TestRamp_ToDelete_2025-08-18T12-28-52/GoTone_StateTransitions.csv</io:FileName>
               <io:Append>false</io:Append>
               <io:Overwrite>false</io:Overwrite>
               <io:Suffix>None</io:Suffix>
@@ -2465,7 +2467,7 @@
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="dsp:MatrixWriter">
-                      <dsp:Path>C:\Users\Sippylab\Desktop\Behavior Data/Celeste/For_Shawn/gtACR2_Ramp_Data_For_Shawn_2025-08-18T12-14-49/Joystick.bin</dsp:Path>
+                      <dsp:Path>C:\Users\Sippylab\Desktop\Behavior Data/Celeste/ToDelete/TestRamp_ToDelete_2025-08-18T12-28-52/Joystick.bin</dsp:Path>
                       <dsp:Suffix>None</dsp:Suffix>
                       <dsp:Overwrite>false</dsp:Overwrite>
                       <dsp:Layout>ColumnMajor</dsp:Layout>
@@ -3255,7 +3257,7 @@ Item5 as NoGoToneTick)</scr:Expression>
         </PropertyMappings>
       </Expression>
       <Expression xsi:type="io:CsvWriter">
-        <io:FileName>C:\Users\Sippylab\Desktop\Behavior Data/Celeste/For_Shawn/gtACR2_Ramp_Data_For_Shawn_2025-08-18T12-14-49/JoystickTrace.csv</io:FileName>
+        <io:FileName>C:\Users\Sippylab\Desktop\Behavior Data/Celeste/ToDelete/TestRamp_ToDelete_2025-08-18T12-28-52/JoystickTrace.csv</io:FileName>
         <io:Append>false</io:Append>
         <io:Overwrite>false</io:Overwrite>
         <io:Suffix>None</io:Suffix>
@@ -3417,7 +3419,7 @@ Item5 as NoGoToneTick)</scr:Expression>
       </Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="StringProperty">
-          <Value>gtACR2_Ramp_Data</Value>
+          <Value>TestRamp</Value>
         </Combinator>
       </Expression>
       <Expression xsi:type="ExternalizedMapping">
@@ -3425,7 +3427,7 @@ Item5 as NoGoToneTick)</scr:Expression>
       </Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="StringProperty">
-          <Value>For_Shawn</Value>
+          <Value>ToDelete</Value>
         </Combinator>
       </Expression>
       <Expression xsi:type="Combinator">
@@ -3519,7 +3521,7 @@ Item2 as Metadata)</scr:Expression>
         </PropertyMappings>
       </Expression>
       <Expression xsi:type="io:CsvWriter">
-        <io:FileName>C:\Users\Sippylab\Desktop\Behavior Data/Celeste/For_Shawn/gtACR2_Ramp_Data_For_Shawn_2025-08-18T12-14-49/LickTrace.csv</io:FileName>
+        <io:FileName>C:\Users\Sippylab\Desktop\Behavior Data/Celeste/ToDelete/TestRamp_ToDelete_2025-08-18T12-28-52/LickTrace.csv</io:FileName>
         <io:Append>false</io:Append>
         <io:Overwrite>false</io:Overwrite>
         <io:Suffix>None</io:Suffix>
