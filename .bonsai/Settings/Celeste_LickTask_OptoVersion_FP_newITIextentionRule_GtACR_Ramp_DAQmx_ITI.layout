@@ -44,7 +44,7 @@
       <RollingGraphVisualizer>
         <Capacity>1000</Capacity>
         <Min>-0.02</Min>
-        <Max>0.02</Max>
+        <Max>0.015</Max>
         <AutoScale>true</AutoScale>
       </RollingGraphVisualizer>
     </VisualizerSettings>
