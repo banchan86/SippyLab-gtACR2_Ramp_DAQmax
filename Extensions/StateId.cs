@@ -5,6 +5,7 @@ public enum StateId
     Go,
     NoGo,
     Timeout,
+    RampOngoing,
     ITI2,
 
     Annotation,

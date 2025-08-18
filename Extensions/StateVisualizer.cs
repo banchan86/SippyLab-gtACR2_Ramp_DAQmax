@@ -69,6 +69,7 @@ public class StateVisualizer : DialogTypeVisualizer
         { StateId.Go, Color.ForestGreen },
         { StateId.NoGo, Color.Gold },
         { StateId.Response, Color.RoyalBlue },
+        { StateId.RampOngoing, Color.RoyalBlue },
         { StateId.Timeout, Color.Red },
         { StateId.ITI2, Color.Gray },
         { StateId.Annotation, Color.Black },

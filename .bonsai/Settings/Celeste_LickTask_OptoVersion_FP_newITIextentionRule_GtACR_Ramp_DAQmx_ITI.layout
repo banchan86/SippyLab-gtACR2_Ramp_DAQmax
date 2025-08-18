@@ -25,7 +25,7 @@
           </WindowSettings>
           <WindowSettings Index="44">
             <NestedLayout>
-              <WindowSettings Index="5">
+              <WindowSettings Index="6">
                 <Visible>false</Visible>
                 <Location>
                   <X>156</X>
@@ -42,7 +42,7 @@
                   </BooleanTimeSeriesVisualizer>
                 </VisualizerSettings>
               </WindowSettings>
-              <WindowSettings Index="19">
+              <WindowSettings Index="20">
                 <NestedLayout>
                   <WindowSettings Index="13">
                     <Visible>false</Visible>
