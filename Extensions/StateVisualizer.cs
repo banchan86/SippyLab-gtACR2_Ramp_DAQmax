@@ -76,6 +76,8 @@ public class StateVisualizer : DialogTypeVisualizer
         { StateId.Joystick, Color.White },
         { StateId.Lick, Color.HotPink },
         { StateId.Blink, Color.Violet },
+        { StateId.RampOnset, Color.RoyalBlue },
+        { StateId.RampOffset, Color.Purple },
         { StateId.Hit, Color.Transparent},
         { StateId.Miss, Color.Transparent},
         { StateId.CorrectRejection, Color.Transparent},

@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<VisualizerLayout Version="2.9.0">
+  <WindowSettings Index="0">
+    <Visible>false</Visible>
+    <Location>
+      <X>208</X>
+      <Y>208</Y>
+    </Location>
+    <Size>
+      <Width>336</Width>
+      <Height>65</Height>
+    </Size>
+    <VisualizerTypeName>Bonsai.Design.ObjectTextVisualizer</VisualizerTypeName>
+    <VisualizerSettings>
+      <ObjectTextVisualizer />
+    </VisualizerSettings>
+  </WindowSettings>
+  <WindowSettings Index="1">
+    <Location>
+      <X>911</X>
+      <Y>266</Y>
+    </Location>
+    <Size>
+      <Width>336</Width>
+      <Height>279</Height>
+    </Size>
+    <VisualizerTypeName>StateVisualizer</VisualizerTypeName>
+    <VisualizerSettings>
+      <StateVisualizer>
+        <Capacity>10</Capacity>
+      </StateVisualizer>
+    </VisualizerSettings>
+  </WindowSettings>
+  <WindowSettings Index="2">
+    <Location>
+      <X>436</X>
+      <Y>267</Y>
+    </Location>
+    <Size>
+      <Width>337</Width>
+      <Height>279</Height>
+    </Size>
+    <VisualizerTypeName>ResponseVisualizer</VisualizerTypeName>
+    <VisualizerSettings>
+      <ResponseVisualizer />
+    </VisualizerSettings>
+  </WindowSettings>
+  <WindowSettings Index="4">
+    <Location>
+      <X>874</X>
+      <Y>587</Y>
+    </Location>
+    <Size>
+      <Width>416</Width>
+      <Height>279</Height>
+    </Size>
+    <VisualizerTypeName>Bonsai.Design.Visualizers.RollingGraphVisualizer</VisualizerTypeName>
+    <VisualizerSettings>
+      <RollingGraphVisualizer>
+        <Capacity>1000</Capacity>
+        <Min>-0.02</Min>
+        <Max>0.06</Max>
+        <AutoScale>true</AutoScale>
+      </RollingGraphVisualizer>
+    </VisualizerSettings>
+  </WindowSettings>
+  <WindowSettings Index="10">
+    <Location>
+      <X>421</X>
+      <Y>595</Y>
+    </Location>
+    <Size>
+      <Width>416</Width>
+      <Height>279</Height>
+    </Size>
+    <VisualizerTypeName>Bonsai.Design.Visualizers.TimeSeriesVisualizer</VisualizerTypeName>
+    <VisualizerSettings>
+      <TimeSeriesVisualizer>
+        <Capacity>640</Capacity>
+        <Min>0</Min>
+        <Max>0.008</Max>
+        <AutoScale>true</AutoScale>
+      </TimeSeriesVisualizer>
+    </VisualizerSettings>
+  </WindowSettings>
+</VisualizerLayout>

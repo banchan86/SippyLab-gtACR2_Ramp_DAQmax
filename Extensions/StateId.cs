@@ -13,6 +13,8 @@ public enum StateId
     Joystick,
     Lick,
     Blink,
+    RampOnset,
+    RampOffset,
 
 
     Hit,
